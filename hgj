@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Prestige | Expert Tondeuses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary-gold: #ffcc00;
+            --deep-black: #0a0a0a;
+            --soft-black: #1a1a1a;
+            --white: #ffffff;
+            --gray: #888888;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--deep-black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 2px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(10, 10, 10, 0.95);
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .hero span {
+            color: var(--primary-gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background: var(--primary-gold);
+            color: var(--deep-black);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* --- SERVICES --- */
+        .section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: var(--primary-gold);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--soft-black);
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+
+        /* --- COLLABORATION TONDEUSES --- */
+        .collab-section {
+            background: var(--soft-black);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .collab-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .collab-img img {
+            width: 100%;
+            border-radius: 10px;
+            border: 5px solid var(--primary-gold);
+        }
+
+        .collab-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin: 20px 0;
+            font-family: 'Bebas Neue';
+        }
+
+        /* --- GALLERY --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--soft-black);
+            padding: 50px 10%;
+            border-top: 2px solid var(--primary-gold);
+            text-align: center;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .nav-links { display: none; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Barber<span>Shop</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#collab">Boutique</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>L'ART DE LA <span>BARBE</span></h1>
+        <p>Le style n'est pas une option, c'est un héritage. Découvrez notre savoir-faire unique et nos outils de précision professionnels.</p>
+        <a href="#contact" class="btn">Prendre RDV</a>
+    </section>
+
+    <section class="section" id="services">
+        <h2 class="section-title">Nos <span>Services</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-cut"></i>
+                <h3>Coupe Classique</h3>
+                <p>Un style intemporel sculpté aux ciseaux et à la tondeuse de précision.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-user-tie"></i>
+                <h3>Taille de Barbe</h3>
+                <p>Dessin des contours et soin à l'huile chaude pour une barbe parfaite.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hot-tub"></i>
+                <h3>Rasage Traditionnel</h3>
+                <p>Le rituel complet avec serviette chaude et coupe-chou.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section collab-section" id="collab">
+        <div class="collab-img">
+            <img src="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&q=80&w=800" alt="Tondeuse Pro">
+        </div>
+        <div class="collab-text">
+            <h2 class="section-title" style="text-align: left;">Édition <span>Limitée</span></h2>
+            <p>En exclusivité dans notre salon : La Tondeuse Professionnelle Gold Edition. Puissance, précision et design ergonomique pour les hommes exigeants.</p>
+            <div class="price-tag">160 DH</div>
+            <p><i class="fas fa-truck" style="color: var(--primary-gold);"></i> Livraison disponible à Rabat & Salé</p>
+            <br>
+            <a href="https://wa.me/212600000000" class="btn">Commander via WhatsApp</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Notre <span>Style</span></h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512690199101-8d8eb8bbd914?auto=format&fit=crop&q=80&w=600" alt="Barbe 1"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1621605815841-aa33c54431cc?auto=format&fit=crop&q=80&w=600" alt="Barbe 2"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599351431247-f5091e3c339e?auto=format&fit=crop&q=80&w=600" alt="Barbe 3"></div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="logo">Barber<span>Shop</span></div>
+        <p>Avenue Mohammed V, Rabat, Maroc</p>
+        <p>Suivez-nous sur les réseaux sociaux</p>
+        <div class="social-links" style="margin: 20px 0;">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2026 Barber Prestige - Collaboration Officielle Tondeuses</p>
+    </footer>
+
+</body>
+</html>
